@@ -11,9 +11,6 @@
 </head>
 
 <body>
-
-
-
   <div class="container">
     <div class="header">
       <h3>Advanced form Inputs
@@ -91,6 +88,22 @@
   </div>
 
   <script src="scripts/DynamicObjectForm.js"></script>
+  <script>
+    const form1 = new DeepObjects({
+      inputs: '[type="text"], textarea, select, [type="radio"], [type="checkbox"]'
+    });
+
+    const submitBtn = document.querySelector("#submit");
+    const displayBtn = document.querySelector("#display");
+    submitBtn.addEventListener("click", e => {
+      e.preventDefault();
+      form1.getValues();
+    });
+    displayBtn.addEventListener("click", e => {
+      e.preventDefault();
+      form1.displayValues(fakeData);
+    });
+  </script>
 </body>
 
 </html>
