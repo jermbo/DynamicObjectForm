@@ -128,18 +128,3 @@ const DeepObjects = function(opts) {
     displayValues: displayValues
   };
 };
-
-const form1 = new DeepObjects({
-  inputs: '[type="text"], textarea, select, [type="radio"], [type="checkbox"]'
-});
-
-const submitBtn = document.querySelector("#submit");
-const displayBtn = document.querySelector("#display");
-submitBtn.addEventListener("click", e => {
-  e.preventDefault();
-  form1.getValues();
-});
-displayBtn.addEventListener("click", e => {
-  e.preventDefault();
-  form1.displayValues(fakeData);
-});
