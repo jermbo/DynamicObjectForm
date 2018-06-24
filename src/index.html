@@ -19,7 +19,7 @@
     </div>
     <div class="form-area">
       <div class="form-group">
-        <label>Select Box</label>
+        <h5>Select Box</h5>
         <select class="form-control" name="name.prefix">
           <option value="mr">Mr</option>
           <option value="ms" selected="selected">Ms</option>
@@ -27,26 +27,42 @@
         </select>
       </div>
       <div class="form-group">
-        <labels>Radios</labels>
-        <input type="radio" id="r1" name="name.suffix" value="esq." />
-        <label for="r1">Esq</label>
-        <input type="radio" id="r2" name="name.suffix" value="iii." />
-        <label for="r2">The Third</label>
-        <input type="radio" id="r3" name="name.suffix" value="iv." />
-        <label for="r3">The Fourth</label>
-        <input type="radio" id="r4" name="name.suffix" value="jr." />
-        <label for="r4">Junior</label>
+        <h5>Radios</h5>
+        <div class="group">
+          <input type="radio" id="r1" name="name.suffix" value="esq." />
+          <label for="r1">Esq</label>
+        </div>
+        <div class="group">
+          <input type="radio" id="r2" name="name.suffix" value="iii." />
+          <label for="r2">The Third</label>
+        </div>
+        <div class="group">
+          <input type="radio" id="r3" name="name.suffix" value="iv." />
+          <label for="r3">The Fourth</label>
+        </div>
+        <div class="group">
+          <input type="radio" id="r4" name="name.suffix" value="jr." />
+          <label for="r4">Junior</label>
+        </div>
       </div>
       <div class="form-group">
-        <label>Radios</label>
-        <input type="checkbox" id="c1" name="check.test" value="test1" />
-        <label for="c1">Test 1 </label>
-        <input type="checkbox" id="c2" name="check.test" value="test2" />
-        <label for="c2">Test 2 </label>
-        <input type="checkbox" id="c3" name="check.test" value="test3" />
-        <label for="c3">Test 3 </label>
-        <input type="checkbox" id="c4" name="check.test" value="test4" />
-        <label for="c4">Test 4 </label>
+        <h5>Radios</h5>
+        <div class="group">
+          <input type="checkbox" id="c1" name="check.test" value="test1" />
+          <label for="c1">Test 1</label>
+        </div>
+        <div class="group">
+          <input type="checkbox" id="c2" name="check.test" value="test2" />
+          <label for="c2">Test 2 </label>
+        </div>
+        <div class="group">
+          <input type="checkbox" id="c3" name="check.test" value="test3" />
+          <label for="c3">Test 3 </label>
+        </div>
+        <div class="group">
+          <input type="checkbox" id="c4" name="check.test" value="test4" />
+          <label for="c4">Test 4 </label>
+        </div>
       </div>
       <div class="form-group third">
         <label>First Name</label>
@@ -82,8 +98,8 @@
         </label>
         <textarea class="form-control" name="sayings" cols="30" rows="10"></textarea>
       </div>
-      <button class="btn btn-block btn-primary half" id="submit">Submit Form</button>
-      <button class="btn btn-block btn-warning half" id="display">Display Data</button>
+      <button class="btn btn-primary half" id="submit">Submit Form</button>
+      <button class="btn btn-secondary half" id="display">Display Data</button>
     </div>
   </div>
 
@@ -103,6 +119,7 @@
       e.preventDefault();
       form1.displayValues(fakeData);
     });
+
   </script>
 </body>
 

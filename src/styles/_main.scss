@@ -1,0 +1,25 @@
+lables {
+    display: inline-block;
+    float: left;
+}
+
+select {
+    width: 100%;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: inline-block;
+    float: right;
+    width: 15px;
+    margin-left: 5px;
+}
+
+.group {
+    float: left;
+    margin-right: 15px;
+}
+
+h5 {
+    margin: 5px 0;
+}
