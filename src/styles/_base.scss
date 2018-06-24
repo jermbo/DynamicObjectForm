@@ -1,0 +1,98 @@
+:root {
+    --primary-color: rgba(40, 150, 240, 0.9);
+    --secondary-color: rgba(80, 170, 70, 0.9);
+    --background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/54887/wild-sea.png);
+    --background-deg: -45deg;
+}
+
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PT-Sans', sans-serif;
+    background: linear-gradient( var(--background-deg), var(--primary-color), var(--secondary-color)), var(--background-image);
+    background-blend-mode: color-burn;
+    min-height: calc(100vh - 100px);
+    margin: 50px 0;
+}
+
+.container {
+    width: 75vw;
+    margin: 0 auto;
+    color: #e5e5e5;
+}
+
+.form-area {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-flow: dense;
+    grid-gap: 0.5rem 1rem;
+}
+
+.form-area>* {
+    grid-column: 1 / -1;
+}
+
+.half {
+    grid-column: span 6;
+}
+
+.third {
+    grid-column: span 4;
+}
+
+.quarter {
+    grid-column: span 3;
+}
+
+input,
+textarea {
+    width: 100%;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.btn {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+    border: 0;
+    padding: 10px;
+    width: 100%;
+    color: white;
+}
+
+.btn-primary {
+    background: #51ab49;
+}
+
+.btn-secondary {
+    background: #2596ec;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+.title small {
+    display: block;
+    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
+    transition: all 0.25s ease;
+    font-size: .5em;
+    font-weight: 400;
+}
+
+.title:hover {
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.title:hover small {
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+}

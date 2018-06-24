@@ -1,26 +1,3 @@
-/*
-const possibleData = {
-    bio: {
-        name: 'Aang',
-        alternativeNames: ['Kuzon', 'Twinkel Toes', 'Sweetie'],
-        nationality: 'Southern Air Tempel',
-        ethnicity: 'Air Nomad',
-        born: '12 BG',
-        died: '152 AG',
-    },
-    physicialDescription : {
-        gender: 'Male',
-        eyeColor: 'Gray',
-        hairColor: 'Dark Brown',
-        skinColor: 'Light',
-        images: ['https://vignette.wikia.nocookie.net/avatar/images/a/ae/Aang_at_Jasmine_Dragon.png/revision/latest?cb=20130612174003']
-    },
-    personalInformation: {
-        weapons: ['Glider Staff', 'The Elements'],
-        fightingStyles: ['Airbending', 'Waterbending', 'Earthbending', 'Firebending', 'Energybending']
-    }
-};
-*/
 const fakeData = {
   name: {
     first: "jermbo",
@@ -42,7 +19,7 @@ const fakeData = {
   ]
 };
 console.clear();
-const DeepObjects = function(opts) {
+const DeepObjects = function (opts) {
   const inputs = document.querySelectorAll(opts.inputs);
   let finalObj;
 
@@ -128,3 +105,4 @@ const DeepObjects = function(opts) {
     displayValues: displayValues
   };
 };
+
