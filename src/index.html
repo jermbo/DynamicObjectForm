@@ -105,19 +105,32 @@
 
   <script src="scripts/DynamicObjectForm.js"></script>
   <script>
-    const form1 = new DeepObjects({
+    const form = new DeepObjects({
       inputs: '[type="text"], textarea, select, [type="radio"], [type="checkbox"]'
     });
 
     const submitBtn = document.querySelector("#submit");
     const displayBtn = document.querySelector("#display");
+
     submitBtn.addEventListener("click", e => {
       e.preventDefault();
-      form1.getValues();
+      const data = form.getFormValues();
+      console.log('before data', data)
+      form.uploadValues({
+        url: 'http://localhost:4000/people/',
+        data: data
+      }, cb);
     });
+
+    function cb(data) {
+      console.log('data', data);
+    }
+
     displayBtn.addEventListener("click", e => {
       e.preventDefault();
-      form1.displayValues(fakeData);
+      fetch('http://localhost:4000/people/1')
+        .then(resp => resp.json())
+        .then(json => form.displayValues(json));
     });
 
   </script>

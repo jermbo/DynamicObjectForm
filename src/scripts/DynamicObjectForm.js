@@ -1,29 +1,9 @@
-const fakeData = {
-  name: {
-    first: "jermbo",
-    middle: "t",
-    last: "last",
-    prefix: "mr",
-    suffix: "iii."
-  },
-  check: {
-    test: ["test1", "test2"]
-  },
-  info: { age: 33, gender: "m", species: "human" },
-  occupation: "developer",
-  sayings: [
-    "this is a story all about how...",
-    "my life got flipped, turned upside down...",
-    "and id like to take a minute just sitting right there...",
-    "ill tell you how i became the prince of bel air..."
-  ]
-};
 console.clear();
 const DeepObjects = function (opts) {
   const inputs = document.querySelectorAll(opts.inputs);
   let finalObj;
 
-  function getValues() {
+  function getFormValues() {
     finalObj = {};
     inputs.forEach(input => {
       const keys = input.name.split(".");
@@ -54,7 +34,25 @@ const DeepObjects = function (opts) {
       lastObj[lastKey] = input.value;
     });
 
-    console.log(finalObj);
+    return finalObj;
+  }
+
+  function getValues() {
+
+  }
+
+  function uploadValues(opts) {
+    if (!opts.url) throw new Error('Need some place to put the data');
+    if (!opts.data) throw new Error('Need to know what to save');
+    fetch(opts.url, {
+      method: 'POST',
+      body: JSON.stringify(opts.data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(resp => console.log(resp))
+      .catch(err => console.log(err));
   }
 
   function displayValues(data) {
@@ -101,7 +99,9 @@ const DeepObjects = function (opts) {
   }
 
   return {
+    uploadValues: uploadValues,
     getValues: getValues,
+    getFormValues: getFormValues,
     displayValues: displayValues
   };
 };
