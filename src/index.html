@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Form to JSON</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -21,8 +21,9 @@
       <div class="form-group">
         <h5>Select Box</h5>
         <select class="form-control" name="name.prefix">
+          <option value="">Select One</option>
           <option value="mr">Mr</option>
-          <option value="ms" selected="selected">Ms</option>
+          <option value="ms">Ms</option>
           <option value="miss">Miss</option>
         </select>
       </div>
@@ -98,8 +99,9 @@
         </label>
         <textarea class="form-control" name="sayings" cols="30" rows="10"></textarea>
       </div>
-      <button class="btn btn-primary half" id="submit">Submit Form</button>
+      <button class="btn btn-secondary half" id="reset">Reset Form</button>
       <button class="btn btn-secondary half" id="display">Display Data</button>
+      <button class="btn btn-primary" id="submit">Submit Form</button>
     </div>
   </div>
 
@@ -111,26 +113,33 @@
 
     const submitBtn = document.querySelector("#submit");
     const displayBtn = document.querySelector("#display");
+    const resetBtn = document.querySelector("#reset");
 
     submitBtn.addEventListener("click", e => {
       e.preventDefault();
-      const data = form.getFormValues();
-      console.log('before data', data)
-      form.uploadValues({
-        url: 'http://localhost:4000/people/',
-        data: data
-      }, cb);
+      const data = form.formToJSON();
+      console.log('before data', data);
+      fetch('http://localhost:4000/people', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(resp => console.log(resp))
+        .catch(err => console.log(err));
     });
-
-    function cb(data) {
-      console.log('data', data);
-    }
 
     displayBtn.addEventListener("click", e => {
       e.preventDefault();
       fetch('http://localhost:4000/people/1')
         .then(resp => resp.json())
-        .then(json => form.displayValues(json));
+        .then(json => form.jsonToForm(json));
+    });
+
+    resetBtn.addEventListener('click', e => {
+      e.preventDefault();
+      form.resetForm();
     });
 
   </script>
