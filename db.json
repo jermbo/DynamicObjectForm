@@ -27,33 +27,6 @@
         "ill tell you how i became the prince of bel air..."
       ],
       "id": 1
-    },
-    {
-      "name": {
-        "prefix": "miss",
-        "suffix": "esq.",
-        "first": "asdf",
-        "middle": "asdf",
-        "last": "asdf"
-      },
-      "check": {
-        "test": [
-          "test1",
-          "test2",
-          "test3",
-          "test4"
-        ]
-      },
-      "info": {
-        "age": "asdf",
-        "gender": "asdf",
-        "species": "sadf"
-      },
-      "occupation": "asdf",
-      "sayings": [
-        "asdf"
-      ],
-      "id": 2
     }
   ]
 }
