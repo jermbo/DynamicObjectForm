@@ -1,14 +1,27 @@
-console.clear();
-
-const DeepObjects = function (options) {
+/**
+ * FormSerializer
+ * (c) 2018 Jeremy "Jermbo" Lawson, MIT License,
+ *
+ * @param {String} elems    All the form elements
+ * @param {Object} options  Base params for how to split fields and name propery [optional]
+ * @returns {Object}        Public API
+ */
+const FormSerializer = function (elems, options) {
   const opts = {
     textSeparator: '; ',
     nameSplitter: '.'
   }
-  const defaults = Object.assign(options, opts);
-  const inputs = document.querySelectorAll(defaults.inputs);
+  const defaults = Object.assign(options || {}, opts);
+  const inputs = document.querySelectorAll(elems);
   let finalObj;
 
+  /**
+   * formToJSON
+   * Builds an object based on the name attribute.
+   *
+   * @param {none}
+   * @returns {Object}
+   */
   function formToJSON() {
     finalObj = {};
     inputs.forEach(input => {
@@ -43,6 +56,14 @@ const DeepObjects = function (options) {
     return finalObj;
   }
 
+  /**
+   * jsonToForm
+   * Populates form fields based from the objects keys
+   * and inputs name property
+   *
+   * @param {Object} data
+   * @returns {none}
+   */
   function jsonToForm(data) {
     inputs.forEach(input => {
       const keys = input.name.split(defaults.nameSplitter);
@@ -86,6 +107,14 @@ const DeepObjects = function (options) {
     });
   }
 
+  /**
+   * resetForm
+   * Clear all form values, uncheck all boxes and radios,
+   * reset all select boxes, and reset all textareas.
+   *
+   * @param {none}
+   * @returns {none}
+   */
   function resetForm() {
     inputs.forEach(input => {
       if (input.type == "checkbox" || input.type == "radio") {
