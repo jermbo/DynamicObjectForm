@@ -6,13 +6,14 @@
  * @param {Object} options  Base params for how to split fields and name propery [optional]
  * @returns {Object}        Public API
  */
-const FormSerializer = function (elems, options) {
+const FormSerializer = function(elems, options) {
   const opts = {
-    textSeparator: '; ',
-    nameSplitter: '.'
-  }
-  const defaults = Object.assign(options || {}, opts);
-  const inputs = document.querySelectorAll(elems);
+    textSeparator: "; ",
+    nameSplitter: "."
+  };
+  const defaults = Object.assign(opts, options || {});
+  const inputs =
+    typeof elems == "string" ? document.querySelectorAll(elems) : elems;
   let finalObj;
 
   /**
@@ -46,7 +47,9 @@ const FormSerializer = function (elems, options) {
       }
 
       if (input.type == "textarea") {
-        lastObj[lastKey] = input.value ? input.value.split(defaults.textSeparator) : [];
+        lastObj[lastKey] = input.value
+          ? input.value.split(defaults.textSeparator)
+          : [];
         return;
       }
 
@@ -131,4 +134,3 @@ const FormSerializer = function (elems, options) {
     resetForm: resetForm
   };
 };
-
