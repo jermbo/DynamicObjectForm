@@ -3,11 +3,11 @@ const env = require("./gulp-env")();
 module.exports = () => {
   const config = {
     html: {
-      source: `${env.srcPath}/**/*.{html, htm, php}`,
+      source: `${env.srcPath}/**/*.{html,htm,php}`,
       build: `${env.buildPath}/`
     },
     styles: {
-      source: `${env.srcPath}/**/styles/**/*.{scss, sass, css}`,
+      source: `${env.srcPath}/**/styles/**/*.{scss,sass,css}`,
       build: `${env.buildPath}/`
     },
     scripts: {
@@ -89,7 +89,7 @@ module.exports = () => {
             "no-undefined": 2,
 
             "wrap-iife": [1, "inside"],
-            quotes: [1, "single"],
+            "quotes": [1, "single"],
             "no-console": 1,
             "no-debugger": 1,
             "no-dupe-keys": 1,
@@ -104,7 +104,7 @@ module.exports = () => {
             "no-unreachable": 1,
             "use-isnan": 1,
             "valid-typeof": 1,
-            curly: 1,
+            "curly": 1,
             "default-case": 1,
             "dot-notation": 1,
             "no-alert": 1,
@@ -128,7 +128,7 @@ module.exports = () => {
             "no-undef-init": 1,
             "no-unused-vars": 1,
             "brace-style": 1,
-            camelcase: 1,
+            "camelcase": 1,
             "comma-spacing": 1,
             "comma-style": 1,
             "consistent-this": 1,
@@ -151,7 +151,7 @@ module.exports = () => {
             "no-underscore-dangle": 1,
             "no-extra-parens": 1,
             "operator-assignment": 1,
-            semi: 1,
+            "semi": 1,
             "keyword-spacing": 1,
             "space-before-blocks": 1,
             "object-curly-spacing": 1,
@@ -166,7 +166,7 @@ module.exports = () => {
             "no-use-before-define": 0,
             "no-func-assign": 0,
             "one-var": 0,
-            eqeqeq: 0,
+            "eqeqeq": 0,
             "guard-for-in": 0,
             "no-loop-func": 0,
             "func-names": 0,
@@ -177,14 +177,7 @@ module.exports = () => {
             "sort-vars": 0,
             "space-before-function-paren": 0
           },
-          globals: [
-            "jQuery",
-            "$",
-            "TweenLite",
-            "TweenMax",
-            "TimelineLite",
-            "TimelineMax"
-          ],
+          globals: ["jQuery", "$", "TweenLite", "TweenMax", "TimelineLite", "TimelineMax"],
           envs: ["browser", "es6"]
         },
         sass: {
@@ -241,56 +234,6 @@ module.exports = () => {
             ],
             "single-line-per-selector": 0,
             "force-pseudo-nesting": 0
-          }
-        },
-        html: {
-          rules: {
-            "attr-bans": 0,
-            "attr-name-ignore-regex": 0,
-            "attr-name-style": 0,
-            "attr-new-line": 0,
-            "attr-no-dup": 0,
-            "attr-no-unsafe-char": 0,
-            "attr-order": 0,
-            "attr-quote-style": 0,
-            "attr-req-value": 0,
-            "class-no-dup": 0,
-            "class-style": 0,
-            "doctype-first": 0,
-            "doctype-html5": 0,
-            "fig-req-figcaption": 0,
-            "focusable-tabindex-style": 0,
-            "head-req-title": 0,
-            "head-valid-content-model": 0,
-            "href-style": 0,
-            "html-req-lang": 0,
-            "html-valid-content-model": 0,
-            "id-class-ignore-regex": 0,
-            "id-class-no-ad": 0,
-            "id-class-style": 0,
-            "id-no-dup": 0,
-            "img-req-alt": 0,
-            "img-req-src": 0,
-            "indent-style": 0,
-            "indent-width": 0,
-            "indent-width-cont": 0,
-            "input-radio-req-name": 0,
-            "input-req-label": 0,
-            "label-req-for": 0,
-            "lang-style": 0,
-            "line-end-style": 0,
-            "line-max-len": 0,
-            "line-max-len-ignore-regex": 0,
-            "spec-char-escape": 0,
-            "table-req-caption": 0,
-            "table-req-header": 0,
-            "tag-bans": 0,
-            "tag-close": 0,
-            "tag-name-lowercase": 0,
-            "tag-name-match": 0,
-            "tag-self-close": 0,
-            "title-max-len": 0,
-            "title-no-dup": 0
           }
         }
       }
