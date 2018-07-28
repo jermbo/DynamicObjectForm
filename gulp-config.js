@@ -11,16 +11,15 @@ module.exports = () => {
       build: `${env.buildPath}/`
     },
     scripts: {
-      source: `${env.srcPath}/**/scripts/**/*.js`,
-      build: `${env.buildPath}/`
-    },
-    json: {
-      source: `${env.srcPath}/json/**/*.json`,
-      build: `${env.buildPath}/`
+      source: `${env.srcPath}/scripts/**/*.js`,
+      lintPath: `${env.srcPath}/scripts/`,
+      build: `${env.buildPath}/scripts/`
     },
     images: {
-      source: `${env.srcPath}/**/images/**/*.*`,
-      build: `${env.buildPath}/`
+      source: `${
+        env.srcPath
+      }/images/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF,svg}`,
+      build: `${env.buildPath}/images/`
     },
     browserSync: {
       port: env.port,
@@ -42,11 +41,7 @@ module.exports = () => {
             "env",
             {
               targets: {
-                browsers: [
-                  "last 2 Chrome versions",
-                  "last 2 Edge versions",
-                  "last 2 Firefox versions"
-                ]
+                browsers: ["last 4 versions"]
               }
             }
           ]
@@ -54,7 +49,7 @@ module.exports = () => {
         plugins: ["transform-object-rest-spread"]
       },
       sass: {
-        outputStyle: "expanded"
+        outputStyle: "compressed"
       },
       formatting: {
         indent_size: 4,
@@ -89,7 +84,7 @@ module.exports = () => {
             "no-undefined": 2,
 
             "wrap-iife": [1, "inside"],
-            "quotes": [1, "single"],
+            quotes: [1, "single"],
             "no-console": 1,
             "no-debugger": 1,
             "no-dupe-keys": 1,
@@ -104,7 +99,7 @@ module.exports = () => {
             "no-unreachable": 1,
             "use-isnan": 1,
             "valid-typeof": 1,
-            "curly": 1,
+            curly: 1,
             "default-case": 1,
             "dot-notation": 1,
             "no-alert": 1,
@@ -128,7 +123,7 @@ module.exports = () => {
             "no-undef-init": 1,
             "no-unused-vars": 1,
             "brace-style": 1,
-            "camelcase": 1,
+            camelcase: 1,
             "comma-spacing": 1,
             "comma-style": 1,
             "consistent-this": 1,
@@ -151,7 +146,7 @@ module.exports = () => {
             "no-underscore-dangle": 1,
             "no-extra-parens": 1,
             "operator-assignment": 1,
-            "semi": 1,
+            semi: 1,
             "keyword-spacing": 1,
             "space-before-blocks": 1,
             "object-curly-spacing": 1,
@@ -166,7 +161,7 @@ module.exports = () => {
             "no-use-before-define": 0,
             "no-func-assign": 0,
             "one-var": 0,
-            "eqeqeq": 0,
+            eqeqeq: 0,
             "guard-for-in": 0,
             "no-loop-func": 0,
             "func-names": 0,
@@ -177,7 +172,14 @@ module.exports = () => {
             "sort-vars": 0,
             "space-before-function-paren": 0
           },
-          globals: ["jQuery", "$", "TweenLite", "TweenMax", "TimelineLite", "TimelineMax"],
+          globals: [
+            "jQuery",
+            "$",
+            "TweenLite",
+            "TweenMax",
+            "TimelineLite",
+            "TimelineMax"
+          ],
           envs: ["browser", "es6"]
         },
         sass: {
